@@ -32,8 +32,10 @@ resource "aws_security_group" "kk-ssh-allowed" {
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
+   tags = {
+     Name = "firefly-ELM-DEV-market-sg"
 }
-
+}
 resource "aws_security_group" "kk-ssh-allowed-2" {
     vpc_id = aws_vpc.Main.id
 
@@ -68,6 +70,9 @@ resource "aws_security_group" "kk-ssh-allowed-2" {
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
+   tags = {
+     Name = "firefly-ELM-DEV-forcast-sg"
+  }
 }
 
 
@@ -105,6 +110,9 @@ resource "aws_security_group" "kk-ssh-allowed-3" {
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
+    tags = {
+     Name = "firefly-ELM-DEV-SQL-sg"
+  }
 }
 
 resource "aws_security_group" "kk-ssh-allowed-4" {
@@ -141,6 +149,9 @@ resource "aws_security_group" "kk-ssh-allowed-4" {
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
+   tags = {
+     Name = "firefly-ELM-win-jump-sg"
+   }
 }
 
 resource "aws_security_group" "kk-ssh-allowed-5" {
@@ -177,4 +188,7 @@ resource "aws_security_group" "kk-ssh-allowed-5" {
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
+   tags = {
+     Name = "firefly-ELM-win-SFTP"
+  }
 }

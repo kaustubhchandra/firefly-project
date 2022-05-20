@@ -62,6 +62,9 @@
     cidr_block = "0.0.0.0/0"               # Traffic from Public Subnet reaches Internet via Internet Gateway
     gateway_id = aws_internet_gateway.IGW.id
      }
+    tags = {
+     Name = "firefly-ELM-public-route"
+   }
  }
 # Route table for Private Subnet's
  resource "aws_route_table" "PrivateRT" {    # Creating RT for Private Subnet
@@ -69,6 +72,10 @@
    route {
    cidr_block = "0.0.0.0/0"             # Traffic from Private Subnet reaches Internet via NAT Gateway
    nat_gateway_id = aws_nat_gateway.NATgw.id
+   
+   }
+   tags = {
+     Name = "firefly-ELM-private-route"
    }
  }
 #Route table Association with Public Subnet's
